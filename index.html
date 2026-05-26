@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Container Inspector — Docker & GitLab CI Desktop App</title>
+  <meta name="description" content="Inspect Docker containers and monitor GitLab CI/CD jobs in one desktop app. Real-time visibility, job-container correlation, and smart notifications." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ─── Nav ─── -->
+<nav>
+  <div class="nav-logo">
+    <span class="icon">⬡</span>
+    Container Inspector
+  </div>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="navLinks">
+    <a href="#features" class="nav-link">Features</a>
+    <a href="#views"    class="nav-link">Views</a>
+    <a href="#how"      class="nav-link">Get started</a>
+    <a href="#download" class="nav-link">Download</a>
+  </div>
+</nav>
+
+<!-- ─── Hero ─── -->
+<section>
+  <div class="container">
+    <div class="hero">
+      <div class="hero-eyebrow">⬡ Docker &nbsp;+&nbsp; ◈ GitLab CI — in one place</div>
+      <h1>Inspect containers.<br /><span>Track CI jobs.</span><br />Ship faster.</h1>
+      <p>
+        A desktop app that puts your running Docker containers and live GitLab CI/CD jobs
+        side-by-side, with deep inspection, job-runner correlation, and instant notifications.
+      </p>
+      <div class="hero-cta">
+        <a id="heroDlBtn" href="#download" class="btn btn-primary">↓ Download</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Screenshot slider ─── -->
+<section class="slider-section">
+  <div class="slider-wrap" id="slider">
+    <div class="slider-track" id="sliderTrack">
+
+      <!-- Slide 1 -->
+      <div class="slide">
+        <div class="slide-placeholder">
+          <span class="slide-placeholder-icon">⬡</span>
+          <span class="slide-placeholder-label">screenshots/1.png</span>
+        </div>
+        <img src="screenshots/1.png" alt="Docker container list — Local view" />
+        <div class="slide-caption">
+          <span class="slide-caption-num">01 / 08</span>
+          <span class="slide-caption-text"><strong>Local view</strong> — running Docker containers with live status indicators and runner filter</span>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="slide">
+        <div class="slide-placeholder">
+          <span class="slide-placeholder-icon">◈</span>
+          <span class="slide-placeholder-label">screenshots/2.png</span>
+        </div>
+        <img src="screenshots/2.png" alt="Container CI/CD tab" />
+        <div class="slide-caption">
+          <span class="slide-caption-num">02 / 08</span>
+          <span class="slide-caption-text"><strong>CI/CD tab</strong> — GitLab job, pipeline, MR metadata, and commit info extracted from a running container</span>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="slide">
+        <div class="slide-placeholder">
+          <span class="slide-placeholder-icon">🕵️</span>
+          <span class="slide-placeholder-label">screenshots/3.png</span>
+        </div>
+        <img src="screenshots/3.png" alt="Environment variables tab" />
+        <div class="slide-caption">
+          <span class="slide-caption-num">03 / 08</span>
+          <span class="slide-caption-text"><strong>Env tab</strong> — all environment variables with sensitive values masked and one-click copy</span>
+        </div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="slide">
+        <div class="slide-placeholder">
+          <span class="slide-placeholder-icon">🔗</span>
+          <span class="slide-placeholder-label">screenshots/4.png</span>
+        </div>
+        <img src="screenshots/4.png" alt="Mounts and network tab" />
+        <div class="slide-caption">
+          <span class="slide-caption-num">04 / 08</span>
+          <span class="slide-caption-text"><strong>Network tab</strong> — mount points, IP, gateway, MAC address, and DNS names for a container</span>
+        </div>
+      </div>
+
+      <!-- Slide 5 -->
+      <div class="slide">
+        <div class="slide-placeholder">
+          <span class="slide-placeholder-icon">◈</span>
+          <span class="slide-placeholder-label">screenshots/5.png</span>
+        </div>
+        <img src="screenshots/5.png" alt="GitLab CI jobs view" />
+        <div class="slide-caption">
+          <span class="slide-caption-num">05 / 08</span>
+          <span class="slide-caption-text"><strong>GitLab view</strong> — live running jobs grouped by user, with local runner badge where applicable</span>
+        </div>
+      </div>
+
+      <!-- Slide 6 -->
+      <div class="slide">
+        <div class="slide-placeholder">
+          <span class="slide-placeholder-icon">📋</span>
+          <span class="slide-placeholder-label">screenshots/6.png</span>
+        </div>
+        <img src="screenshots/6.png" alt="GitLab job detail — CI/CD tab" />
+        <div class="slide-caption">
+          <span class="slide-caption-num">06 / 08</span>
+          <span class="slide-caption-text"><strong>Job detail</strong> — pipeline info, MR title, triggered-by user, and full CI/CD context for a selected job</span>
+        </div>
+      </div>
+
+      <!-- Slide 7 -->
+      <div class="slide">
+        <div class="slide-placeholder">
+          <span class="slide-placeholder-icon">⚙</span>
+          <span class="slide-placeholder-label">screenshots/7.png</span>
+        </div>
+        <img src="screenshots/7.png" alt="Runner detail tab" />
+        <div class="slide-caption">
+          <span class="slide-caption-num">07 / 08</span>
+          <span class="slide-caption-text"><strong>Runner tab</strong> — runner machine name, token, system ID, IP address, active and online status</span>
+        </div>
+      </div>
+
+      <!-- Slide 8 -->
+      <div class="slide">
+        <div class="slide-placeholder">
+          <span class="slide-placeholder-icon">⚙</span>
+          <span class="slide-placeholder-label">screenshots/8.png</span>
+        </div>
+        <img src="screenshots/8.png" alt="Settings modal" />
+        <div class="slide-caption">
+          <span class="slide-caption-num">08 / 08</span>
+          <span class="slide-caption-text"><strong>Settings</strong> — GitLab token, project ID, auto-fill name from API, and runner watch configuration</span>
+        </div>
+      </div>
+
+    </div><!-- /slider-track -->
+
+    <button class="slider-btn prev" id="sliderPrev" aria-label="Previous slide">&#8249;</button>
+    <button class="slider-btn next" id="sliderNext" aria-label="Next slide">&#8250;</button>
+  </div><!-- /slider-wrap -->
+
+  <div class="slider-dots container" id="sliderDots"></div>
+</section>
+
+<!-- ─── Features ─── -->
+<section id="features">
+  <div class="container">
+    <div class="section-label">Features</div>
+    <h2 class="section-title">Everything in one window</h2>
+    <p class="section-sub">Stop switching between Docker CLI, container logs, and GitLab's UI. Container Inspector brings it all together.</p>
+
+    <div class="features-grid">
+
+      <div class="feature-card">
+        <div class="feature-icon">⬡</div>
+        <h3>Deep container inspection</h3>
+        <p>Overview, CI/CD variables, environment, mounts, and networking — all organised into logical tabs for every running container.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">◈</div>
+        <h3>Live GitLab CI monitoring</h3>
+        <p>See running jobs grouped by triggerer with real-time status. Select any job for a full breakdown of pipeline, MR, and runner details.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🔗</div>
+        <h3>Job ↔ container correlation</h3>
+        <p>Automatically detects when a local GitLab runner container is executing a CI job and surfaces a <strong>● local</strong> badge — no guesswork.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🔔</div>
+        <h3>Smart notifications</h3>
+        <p>Set your name and a runner to watch. Get notified the moment your job starts on that machine, even if the app is in the background.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h3>Secure token storage</h3>
+        <p>Your GitLab personal access token is encrypted with the OS keychain (or AES-256 fallback). Never stored as plaintext on disk.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🕵️</div>
+        <h3>Environment variable inspector</h3>
+        <p>Browse all env vars with sensitive keys auto-masked. One-click reveal and copy-to-clipboard for any value.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── Views ─── -->
+<section id="views">
+  <div class="container">
+    <div class="section-label">Views</div>
+    <h2 class="section-title">Five views, zero clutter</h2>
+    <p class="section-sub">Navigate between Docker containers, GitLab jobs, request logs, support, and about in a clean collapsible sidebar.</p>
+
+    <div class="views-grid">
+
+      <div class="view-card">
+        <div class="view-card-header">
+          <div class="view-icon">⬡</div>
+          <h3>Local — Docker containers</h3>
+        </div>
+        <p>Real-time container list with auto-refresh every 5 seconds. Filter to GitLab runners only. Inspect any container across four detail tabs.</p>
+        <div class="tag-list">
+          <span class="tag">Overview</span>
+          <span class="tag">CI/CD env vars</span>
+          <span class="tag">All env vars</span>
+          <span class="tag">Mounts &amp; Network</span>
+        </div>
+      </div>
+
+      <div class="view-card">
+        <div class="view-card-header">
+          <div class="view-icon">◈</div>
+          <h3>GitLab — CI/CD jobs</h3>
+        </div>
+        <p>Live feed of running jobs, grouped by user, refreshed every 15 seconds. Expand any job for full pipeline, MR, and runner detail.</p>
+        <div class="tag-list">
+          <span class="tag">Job overview</span>
+          <span class="tag">Pipeline info</span>
+          <span class="tag">MR metadata</span>
+          <span class="tag">Runner detail</span>
+        </div>
+      </div>
+
+      <div class="view-card">
+        <div class="view-card-header">
+          <div class="view-icon">☰</div>
+          <h3>Logs — API request inspector</h3>
+        </div>
+        <p>Every IPC call and API request the app makes is logged with status, duration, and full response. Invaluable for debugging connectivity issues.</p>
+        <div class="tag-list">
+          <span class="tag">Request list</span>
+          <span class="tag">Duration</span>
+          <span class="tag">Response body</span>
+        </div>
+      </div>
+
+      <div class="view-card">
+        <div class="view-card-header">
+          <div class="view-icon">⚙</div>
+          <h3>Settings</h3>
+        </div>
+        <p>Configure your GitLab token (auto-fills your name from the API), project ID, the name to watch for, and your target runner — all persisted securely.</p>
+        <div class="tag-list">
+          <span class="tag">GitLab token</span>
+          <span class="tag">Project ID</span>
+          <span class="tag">Watch runner</span>
+          <span class="tag">Auto-fill name</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── How it works ─── -->
+<section id="how">
+  <div class="container">
+    <div class="section-label">Get started</div>
+    <h2 class="section-title">Up and running in minutes</h2>
+    <p class="section-sub">No config files, no CLI setup. Just download, open, and connect.</p>
+
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Download and open</h3>
+        <p>Grab the latest release from GitHub. Runs on Windows, macOS, and Linux via Electron.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Add your GitLab token</h3>
+        <p>Open Settings, paste your personal access token, and enter your project ID. Your token is encrypted immediately on save.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Watch your runner</h3>
+        <p>Type your name and pick a runner from the dropdown. You'll get a notification the moment one of your jobs starts on that machine.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Inspect away</h3>
+        <p>Switch between Local and GitLab views. Click any container or job to drill into its full CI/CD context, environment, and runner detail.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── Requirements ─── -->
+<section id="requirements">
+  <div class="container">
+    <div class="section-label">Requirements</div>
+    <h2 class="section-title">What you need</h2>
+    <p class="section-sub">Container Inspector connects to two things — your local Docker daemon and the GitLab API.</p>
+
+    <div class="req-grid">
+
+      <div class="req-card">
+        <div class="req-card-icon">🐳</div>
+        <h3>Docker Desktop</h3>
+        <p>Docker must be running locally so the app can connect via the Docker socket and list your containers.</p>
+      </div>
+
+      <div class="req-card">
+        <div class="req-card-icon">◈</div>
+        <h3>GitLab access token</h3>
+        <p>A personal access token with <code>read_api</code> scope on gitlab.com or your self-hosted instance.</p>
+      </div>
+
+      <div class="req-card">
+        <div class="req-card-icon">📋</div>
+        <h3>GitLab project ID</h3>
+        <p>Found on your project's main page in GitLab. Needed to fetch jobs and pipeline data for your project.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── Download ─── -->
+<section id="download">
+  <div class="container">
+    <div class="cta-box">
+      <h2>Download Container Inspector</h2>
+      <p>Built for developers who run GitLab CI locally.</p>
+      <div class="platform-dl-grid">
+        <a href="https://github.com/ArnoldT01/container-inspector-website/releases/latest/download/Container-Inspector-Setup.exe"
+           class="platform-dl-btn">
+          <span class="platform-dl-label">Windows</span>
+          <span class="platform-dl-ext">.exe</span>
+        </a>
+        <a href="https://github.com/ArnoldT01/container-inspector-website/releases/latest/download/Container-Inspector.dmg"
+           class="platform-dl-btn">
+          <span class="platform-dl-label">macOS</span>
+          <span class="platform-dl-ext">.dmg</span>
+        </a>
+        <a href="https://github.com/ArnoldT01/container-inspector-website/releases/latest/download/Container-Inspector.AppImage"
+           class="platform-dl-btn">
+          <span class="platform-dl-label">Linux</span>
+          <span class="platform-dl-ext">.AppImage</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Footer ─── -->
+<footer>
+  <p>
+    &copy; <span id="year"></span> Arnold · <a href="https://github.com/ArnoldT01" target="_blank">GitHub</a>
+  </p>
+</footer>
+
+<script>
+(function () {
+  const SLIDE_COUNT = 8;
+  const track  = document.getElementById('sliderTrack');
+  const prevBtn = document.getElementById('sliderPrev');
+  const nextBtn = document.getElementById('sliderNext');
+  const dotsEl  = document.getElementById('sliderDots');
+
+  let current = 0;
+
+  // Build dots
+  const dots = Array.from({ length: SLIDE_COUNT }, (_, i) => {
+    const b = document.createElement('button');
+    b.className = 'dot' + (i === 0 ? ' active' : '');
+    b.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    b.addEventListener('click', () => goTo(i));
+    dotsEl.appendChild(b);
+    return b;
+  });
+
+  function goTo(n) {
+    current = (n + SLIDE_COUNT) % SLIDE_COUNT;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    prevBtn.disabled = false;
+    nextBtn.disabled = false;
+  }
+
+  prevBtn.addEventListener('click', () => goTo(current - 1));
+  nextBtn.addEventListener('click', () => goTo(current + 1));
+
+  // Keyboard navigation
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft')  goTo(current - 1);
+    if (e.key === 'ArrowRight') goTo(current + 1);
+  });
+
+  // Touch / swipe support
+  let touchStartX = 0;
+  const sliderEl = document.getElementById('slider');
+
+  sliderEl.addEventListener('touchstart', e => {
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
+
+  sliderEl.addEventListener('touchend', e => {
+    const delta = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(delta) > 40) goTo(delta > 0 ? current + 1 : current - 1);
+  }, { passive: true });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Hamburger menu
+  const hamburger = document.getElementById('navHamburger');
+  const navLinks  = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open);
+  });
+  // Close menu when a link is clicked
+  navLinks.querySelectorAll('.nav-link').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+    });
+  });
+
+  // Platform-detect hero download button
+  (function () {
+    const ua = navigator.userAgent;
+    const btn = document.getElementById('heroDlBtn');
+    if (!btn) return;
+    if (ua.includes('Win')) {
+      btn.textContent = '↓ Download for Windows';
+      btn.href = 'https://github.com/ArnoldT01/container-inspector-website/releases/latest/download/Container-Inspector-Setup.exe';
+    } else if (ua.includes('Mac')) {
+      btn.textContent = '↓ Download for macOS';
+      btn.href = 'https://github.com/ArnoldT01/container-inspector-website/releases/latest/download/Container-Inspector.dmg';
+    } else if (ua.includes('Linux')) {
+      btn.textContent = '↓ Download for Linux';
+      btn.href = 'https://github.com/ArnoldT01/container-inspector-website/releases/latest/download/Container-Inspector.AppImage';
+    }
+  })();
+
+  // Show real images once loaded, hide placeholder
+  document.querySelectorAll('.slide img').forEach(img => {
+    function reveal() { img.classList.add('loaded'); }
+    if (img.complete && img.naturalWidth > 0) reveal();
+    else img.addEventListener('load', reveal);
+  });
+})();
+</script>
+
+</body>
+</html>
